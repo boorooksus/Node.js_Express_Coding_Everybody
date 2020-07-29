@@ -8,8 +8,8 @@ var sanitizeHtml = require('sanitize-html');
 
 
 var app = http.createServer(function(request,response){
-    var _url = request.url; //query string 저장
-    var queryData = url.parse(_url, true).query; //query string 분석해서 얻어낸 데이터 저장하는 객체
+    var _url = request.url; 
+    var queryData = url.parse(_url, true).query;
     var pathname = url.parse(_url, true).pathname;
 
     if(pathname ==='/'){
@@ -47,7 +47,6 @@ var app = http.createServer(function(request,response){
     else if(pathname === '/create'){
         fs.readdir('./data', 'utf8', function(error, filelist){
             var title = 'Web create';
-            //var description = 'Welcome';
             var list = template.list(filelist);
             var html = template.html(title, list, `
             <form action="/create_process" method="post">
@@ -73,15 +72,12 @@ var app = http.createServer(function(request,response){
             var post = qs.parse(body);
             var title = post.title;
             var description = post.description;
-            //전송된 내용으로 파일 생성
             fs.writeFile(`data/${title}`, description, 'utf8', function(err){
-                // 파일 생성 후 redirection
                 response.writeHead(302, {Location: `/?id=${qs.escape(title)}`});
                 response.end('success');
             })
         });
     }
-    //update 링크를 눌렀을 때,
     else if(pathname === '/update'){
         fs.readdir('./data', 'utf8', function(error, filelist){
             var filteredId = path.parse(queryData.id).base;
@@ -108,7 +104,6 @@ var app = http.createServer(function(request,response){
             });
         });
     }
-    //수정 사항 작성 후 전송 눌른 후
     else if (pathname ==='/update_process'){
         var body = '';
         request.on('data',function(data){
@@ -119,9 +114,7 @@ var app = http.createServer(function(request,response){
             var id = post.id;
             var title = post.title;
             var description = post.description;
-            //이름 변경
             fs.rename(`data/${id}`, `data/${title}`, function(err){
-                //본문 변경
                 fs.writeFile(`data/${title}`, description, 'utf8', function(err){
                     response.writeHead(302, {Location: `/?id=${qs.escape(title)}`});
                     response.end('success');
@@ -129,7 +122,6 @@ var app = http.createServer(function(request,response){
             });
         });
     }
-    //삭제 버튼 누른 후
     else if (pathname ==='/delete_process'){
         var body = '';
         request.on('data',function(data){
