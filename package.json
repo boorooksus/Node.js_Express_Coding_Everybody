@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/boorooksus/Node.js_mySQL_Coding_Everybody/blob/master/README.md",
   "dependencies": {
+    "express": "^4.17.1",
     "mysql": "^2.18.1",
     "sanitize-html": "^1.18.2"
   }
