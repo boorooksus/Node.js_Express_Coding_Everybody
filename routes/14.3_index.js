@@ -8,7 +8,7 @@ router.get('/', function(request, response){
     var list = template.list(request.list);
     var html = template.html(title, list, 
         `<p><h2>${title}</h2><img src="/images/coding.jpg" style="width:500px; display:block;">${description}</p>`,
-        `<a href="/create">create</a>`
+        `<a href="/topic/create">create</a>`
     );
     response.send(html);
 });
