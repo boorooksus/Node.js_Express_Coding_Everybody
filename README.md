@@ -19,7 +19,4 @@
 #### 파일 이름 규칙: [강의 번호(버전)]_[코드 제목].[확장자명]
 >_e.g)05_BuildingDetailView.js_
 =======
-   
-#### file naming rule: [lecture number(version)]_[title of code].[extension]
->_e.g)05_BuildingDetailView.js_
-   
+
