@@ -1,7 +1,7 @@
-# Node.js_Express_Cording_Everybody
+# Node.js_Express_Coding_Everybody
 
 
-#### Study for Express which is Node.js web framework in Cording Everybody(Opentutorials)
+#### Study for Express which is Node.js web framework in Coding Everybody(Opentutorials)
 
 #### Reference of materials
 >"Node.js - Express," Opentutorials, last modified JUL 23, 2018, accessed AUG 05, 2020, <https://opentutorials.org/course/3370>
